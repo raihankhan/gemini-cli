@@ -44,7 +44,7 @@ updatePackageJson('packages/cli/package.json', (pkg) => {
   pkg.name = '@google-gemini/gemini-cli';
   pkg.files = ['bundle/'];
   pkg.bin = {
-    gemini: 'bundle/gemini.js',
+    gemini: 'bundle/coder.js',
   };
 
   // Remove fields that are not relevant to the bundled package.

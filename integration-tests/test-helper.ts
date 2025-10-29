@@ -22,7 +22,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // Get timeout based on environment
 function getDefaultTimeout() {
   if (env['CI']) return 60000; // 1 minute in CI
-  if (env['GEMINI_SANDBOX']) return 30000; // 30s in containers
+  if (env['CODER_SANDBOX']) return 30000; // 30s in containers
   return 15000; // 15s locally
 }
 
@@ -261,7 +261,7 @@ export class TestRig {
   originalFakeResponsesPath?: string;
 
   constructor() {
-    this.bundlePath = join(__dirname, '..', 'bundle/gemini.js');
+    this.bundlePath = join(__dirname, '..', 'bundle/coder.js');
     this.testDir = null;
   }
 
@@ -309,8 +309,7 @@ export class TestRig {
         },
       },
       model: DEFAULT_GEMINI_MODEL,
-      sandbox:
-        env['GEMINI_SANDBOX'] !== 'false' ? env['GEMINI_SANDBOX'] : false,
+      sandbox: env['CODER_SANDBOX'] !== 'false' ? env['CODER_SANDBOX'] : false,
       ...options.settings, // Allow tests to override/add settings
     };
     writeFileSync(
@@ -445,7 +444,7 @@ export class TestRig {
           // Filter out telemetry output when running with Podman
           // Podman seems to output telemetry to stdout even when writing to file
           let result = stdout;
-          if (env['GEMINI_SANDBOX'] === 'podman') {
+          if (env['CODER_SANDBOX'] === 'podman') {
             // Remove telemetry JSON objects from output
             // They are multi-line JSON objects that start with { and contain telemetry fields
             const lines = result.split(os.EOL);
@@ -877,7 +876,7 @@ export class TestRig {
   readToolLogs() {
     // For Podman, first check if telemetry file exists and has content
     // If not, fall back to parsing from stdout
-    if (env['GEMINI_SANDBOX'] === 'podman') {
+    if (env['CODER_SANDBOX'] === 'podman') {
       // Try reading from file first
       const logFilePath = join(this.testDir!, 'telemetry.log');
 

@@ -1,19 +1,21 @@
-# Gemini CLI
+# Coder CLI
 
-[![Gemini CLI CI](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml)
-[![Gemini CLI E2E](https://github.com/google-gemini/gemini-cli/actions/workflows/e2e.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/e2e.yml)
-[![Version](https://img.shields.io/npm/v/@google/gemini-cli)](https://www.npmjs.com/package/@google/gemini-cli)
-[![License](https://img.shields.io/github/license/google-gemini/gemini-cli)](https://github.com/google-gemini/gemini-cli/blob/main/LICENSE)
+**Computational Operations Directed by Enhanced Reasoning**
 
-![Gemini CLI Screenshot](./docs/assets/gemini-screenshot.png)
+[![Coder CLI CI](https://github.com/raihankhan/coder-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/raihankhan/coder-cli/actions/workflows/ci.yml)
+[![Coder CLI E2E](https://github.com/raihankhan/coder-cli/actions/workflows/e2e.yml/badge.svg)](https://github.com/raihankhan/coder-cli/actions/workflows/e2e.yml)
+[![Version](https://img.shields.io/npm/v/@google/coder-cli)](https://www.npmjs.com/package/@google/coder-cli)
+[![License](https://img.shields.io/github/license/raihankhan/coder-cli)](https://github.com/raihankhan/coder-cli/blob/main/LICENSE)
 
-Gemini CLI is an open-source AI agent that brings the power of Gemini directly
-into your terminal. It provides lightweight access to Gemini, giving you the
-most direct path from your prompt to our model.
+![Coder CLI Screenshot](./docs/assets/coder-screenshot.png)
 
-Learn all about Gemini CLI in our [documentation](https://geminicli.com/docs/).
+Coder CLI is an open-source AI agent that brings the power of coder directly
+into your terminal. It provides lightweight access to coder, giving you the most
+direct path from your prompt to our model.
 
-## 🚀 Why Gemini CLI?
+Learn all about Coder CLI in our [documentation](https://geminicli.com/docs/).
+
+## 🚀 Why Coder CLI?
 
 - **🎯 Free tier**: 60 requests/min and 1,000 requests/day with personal Google
   account.
@@ -38,19 +40,19 @@ Learn all about Gemini CLI in our [documentation](https://geminicli.com/docs/).
 
 ```bash
 # Using npx (no installation required)
-npx https://github.com/google-gemini/gemini-cli
+npx https://github.com/google-coder/coder-cli
 ```
 
 #### Install globally with npm
 
 ```bash
-npm install -g @google/gemini-cli
+npm install -g @google/coder-cli
 ```
 
 #### Install globally with Homebrew (macOS/Linux)
 
 ```bash
-brew install gemini-cli
+brew install coder-cli
 ```
 
 ## Release Cadence and Tags
@@ -64,7 +66,7 @@ releases will not have been fully vetted and may contain regressions or other
 outstanding issues. Please help us test and install with `preview` tag.
 
 ```bash
-npm install -g @google/gemini-cli@preview
+npm install -g @google/coder-cli@preview
 ```
 
 ### Stable
@@ -74,7 +76,7 @@ npm install -g @google/gemini-cli@preview
   and validations. Use `latest` tag.
 
 ```bash
-npm install -g @google/gemini-cli@latest
+npm install -g @google/coder-cli@latest
 ```
 
 ### Nightly
@@ -84,7 +86,7 @@ npm install -g @google/gemini-cli@latest
   be assumed there are pending validations and issues. Use `nightly` tag.
 
 ```bash
-npm install -g @google/gemini-cli@nightly
+npm install -g @google/coder-cli@nightly
 ```
 
 ## 📋 Key Features
@@ -106,22 +108,22 @@ npm install -g @google/gemini-cli@nightly
 ### Advanced Capabilities
 
 - Ground your queries with built-in
-  [Google Search](https://ai.google.dev/gemini-api/docs/grounding) for real-time
+  [Google Search](https://ai.google.dev/coder-api/docs/grounding) for real-time
   information
 - Conversation checkpointing to save and resume complex sessions
-- Custom context files (GEMINI.md) to tailor behavior for your projects
+- Custom context files (coder.md) to tailor behavior for your projects
 
 ### GitHub Integration
 
-Integrate Gemini CLI directly into your GitHub workflows with
-[**Gemini CLI GitHub Action**](https://github.com/google-github-actions/run-gemini-cli):
+Integrate Coder CLI directly into your GitHub workflows with
+[**Coder CLI GitHub Action**](https://github.com/google-github-actions/run-coder-cli):
 
 - **Pull Request Reviews**: Automated code review with contextual feedback and
   suggestions
 - **Issue Triage**: Automated labeling and prioritization of GitHub issues based
   on content analysis
-- **On-demand Assistance**: Mention `@gemini-cli` in issues and pull requests
-  for help with debugging, explanations, or task delegation
+- **On-demand Assistance**: Mention `@coder-cli` in issues and pull requests for
+  help with debugging, explanations, or task delegation
 - **Custom Workflows**: Build automated, scheduled and on-demand workflows
   tailored to your team's needs
 
@@ -131,9 +133,9 @@ Choose the authentication method that best fits your needs:
 
 ### Option 1: Login with Google (OAuth login using your Google Account)
 
-**✨ Best for:** Individual developers as well as anyone who has a Gemini Code
+**✨ Best for:** Individual developers as well as anyone who has a coder Code
 Assist License. (see
-[quota limits and terms of service](https://cloud.google.com/gemini/docs/quotas)
+[quota limits and terms of service](https://cloud.google.com/coder/docs/quotas)
 for details)
 
 **Benefits:**
@@ -143,10 +145,10 @@ for details)
 - **No API key management** - just sign in with your Google account
 - **Automatic updates** to latest models
 
-#### Start Gemini CLI, then choose _Login with Google_ and follow the browser authentication flow when prompted
+#### Start Coder CLI, then choose _Login with Google_ and follow the browser authentication flow when prompted
 
 ```bash
-gemini
+coder
 ```
 
 #### If you are using a paid Code Assist License from your organization, remember to set the Google Cloud Project
@@ -154,7 +156,7 @@ gemini
 ```bash
 # Set your Google Cloud Project
 export GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_ID"
-gemini
+coder
 ```
 
 ### Option 2: Gemini API Key
@@ -170,7 +172,7 @@ gemini
 ```bash
 # Get your key from https://aistudio.google.com/apikey
 export GEMINI_API_KEY="YOUR_API_KEY"
-gemini
+coder
 ```
 
 ### Option 3: Vertex AI
@@ -187,7 +189,7 @@ gemini
 # Get your key from Google Cloud Console
 export GOOGLE_API_KEY="YOUR_API_KEY"
 export GOOGLE_GENAI_USE_VERTEXAI=true
-gemini
+coder
 ```
 
 For Google Workspace accounts and other authentication methods, see the
@@ -200,19 +202,19 @@ For Google Workspace accounts and other authentication methods, see the
 #### Start in current directory
 
 ```bash
-gemini
+coder
 ```
 
 #### Include multiple directories
 
 ```bash
-gemini --include-directories ../lib,../docs
+coder --include-directories ../lib,../docs
 ```
 
 #### Use specific model
 
 ```bash
-gemini -m gemini-2.5-flash
+coder -m coder-2.5-flash
 ```
 
 #### Non-interactive mode for scripts
@@ -220,21 +222,21 @@ gemini -m gemini-2.5-flash
 Get a simple text response:
 
 ```bash
-gemini -p "Explain the architecture of this codebase"
+coder -p "Explain the architecture of this codebase"
 ```
 
 For more advanced scripting, including how to parse JSON and handle errors, use
 the `--output-format json` flag to get structured output:
 
 ```bash
-gemini -p "Explain the architecture of this codebase" --output-format json
+coder -p "Explain the architecture of this codebase" --output-format json
 ```
 
 For real-time event streaming (useful for monitoring long-running operations),
 use `--output-format stream-json` to get newline-delimited JSON events:
 
 ```bash
-gemini -p "Run tests and deploy" --output-format stream-json
+coder -p "Run tests and deploy" --output-format stream-json
 ```
 
 ### Quick Examples
@@ -243,16 +245,16 @@ gemini -p "Run tests and deploy" --output-format stream-json
 
 ```bash
 cd new-project/
-gemini
+coder
 > Write me a Discord bot that answers questions using a FAQ.md file I will provide
 ```
 
 #### Analyze existing code
 
 ```bash
-git clone https://github.com/google-gemini/gemini-cli
-cd gemini-cli
-gemini
+git clone https://github.com/google-coder/coder-cli
+cd coder-cli
+coder
 > Give me a summary of all of the changes that went in yesterday
 ```
 
@@ -275,8 +277,8 @@ gemini
   (`/help`, `/chat`, etc).
 - [**Custom Commands**](./docs/cli/custom-commands.md) - Create your own
   reusable commands.
-- [**Context Files (GEMINI.md)**](./docs/cli/gemini-md.md) - Provide persistent
-  context to Gemini CLI.
+- [**Context Files (coder.md)**](./docs/cli/coder-md.md) - Provide persistent
+  context to Coder CLI.
 - [**Checkpointing**](./docs/cli/checkpointing.md) - Save and resume
   conversations.
 - [**Token Caching**](./docs/cli/token-caching.md) - Optimize token usage.
@@ -294,9 +296,9 @@ gemini
 
 ### Advanced Topics
 
-- [**Headless Mode (Scripting)**](./docs/cli/headless.md) - Use Gemini CLI in
+- [**Headless Mode (Scripting)**](./docs/cli/headless.md) - Use Coder CLI in
   automated workflows.
-- [**Architecture Overview**](./docs/architecture.md) - How Gemini CLI works.
+- [**Architecture Overview**](./docs/architecture.md) - How Coder CLI works.
 - [**IDE Integration**](./docs/ide-integration/index.md) - VS Code companion.
 - [**Sandboxing & Security**](./docs/cli/sandbox.md) - Safe execution
   environments.
@@ -318,7 +320,7 @@ gemini
 
 ### Using MCP Servers
 
-Configure MCP servers in `~/.gemini/settings.json` to extend Gemini CLI with
+Configure MCP servers in `~/.coder/settings.json` to extend Coder CLI with
 custom tools:
 
 ```text
@@ -332,7 +334,7 @@ instructions.
 
 ## 🤝 Contributing
 
-We welcome contributions! Gemini CLI is fully open source (Apache 2.0), and we
+We welcome contributions! Coder CLI is fully open source (Apache 2.0), and we
 encourage the community to:
 
 - Report bugs and suggest features.
@@ -343,18 +345,18 @@ encourage the community to:
 See our [Contributing Guide](./CONTRIBUTING.md) for development setup, coding
 standards, and how to submit pull requests.
 
-Check our [Official Roadmap](https://github.com/orgs/google-gemini/projects/11)
+Check our [Official Roadmap](https://github.com/orgs/google-coder/projects/11)
 for planned features and priorities.
 
 ## 📖 Resources
 
 - **[Official Roadmap](./ROADMAP.md)** - See what's coming next.
 - **[Changelog](./docs/changelogs/index.md)** - See recent notable updates.
-- **[NPM Package](https://www.npmjs.com/package/@google/gemini-cli)** - Package
+- **[NPM Package](https://www.npmjs.com/package/@google/coder-cli)** - Package
   registry.
-- **[GitHub Issues](https://github.com/google-gemini/gemini-cli/issues)** -
-  Report bugs or request features.
-- **[Security Advisories](https://github.com/google-gemini/gemini-cli/security/advisories)** -
+- **[GitHub Issues](https://github.com/google-coder/coder-cli/issues)** - Report
+  bugs or request features.
+- **[Security Advisories](https://github.com/google-coder/coder-cli/security/advisories)** -
   Security updates.
 
 ### Uninstall
