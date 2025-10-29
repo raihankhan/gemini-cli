@@ -30,7 +30,7 @@ export async function setup() {
   }
   // We also need to set the config dir explicitly, since the code might
   // construct the path before the HOME env var is set.
-  process.env['GEMINI_CONFIG_DIR'] = join(runDir, '.gemini');
+  process.env['CODER_CONFIG_DIR'] = join(runDir, '.gemini');
 
   // Clean up old test runs, but keep the latest few for debugging
   try {

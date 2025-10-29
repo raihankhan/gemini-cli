@@ -1,13 +1,13 @@
 {
-  "name": "gemini-cli-vscode-ide-companion",
-  "displayName": "Gemini CLI Companion",
-  "description": "Enable Gemini CLI with direct access to your IDE workspace.",
+  "name": "coder-cli-vscode-ide-companion",
+  "displayName": "Coder CLI Companion",
+  "description": "Enable Coder CLI with direct access to your IDE workspace.",
   "version": "0.13.0-nightly.20251029.cca41edc",
   "publisher": "google",
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/google-gemini/gemini-cli.git",
+    "url": "https://github.com/raihankhan/gemini-cli.git",
     "directory": "packages/vscode-ide-companion"
   },
   "engines": {
@@ -19,10 +19,9 @@
     "AI"
   ],
   "keywords": [
-    "gemini-cli",
-    "gemini cli",
-    "gemini",
-    "gemini code",
+    "coder-cli",
+    "coder cli",
+    "coder",
     "cli",
     "ide integration",
     "ide companion"
@@ -32,74 +31,74 @@
   ],
   "contributes": {
     "configuration": {
-      "title": "Gemini CLI",
+      "title": "Coder CLI",
       "properties": {
-        "gemini-cli.debug.logging.enabled": {
+        "coder-cli.debug.logging.enabled": {
           "type": "boolean",
           "default": false,
-          "description": "Enable detailed logging for debugging the Gemini CLI Companion."
+          "description": "Enable detailed logging for debugging the Coder CLI Companion."
         }
       }
     },
     "languages": [
       {
-        "id": "gemini-diff-editable"
+        "id": "coder-diff-editable"
       }
     ],
     "commands": [
       {
-        "command": "gemini.diff.accept",
-        "title": "Gemini CLI: Accept Diff",
+        "command": "coder.diff.accept",
+        "title": "Coder CLI: Accept Diff",
         "icon": "$(check)"
       },
       {
-        "command": "gemini.diff.cancel",
-        "title": "Gemini CLI: Close Diff Editor",
+        "command": "coder.diff.cancel",
+        "title": "Coder CLI: Close Diff Editor",
         "icon": "$(close)"
       },
       {
-        "command": "gemini-cli.runGeminiCLI",
-        "title": "Gemini CLI: Run"
+        "command": "coder-cli.runCoderCLI",
+        "title": "Coder CLI: Run"
       },
       {
-        "command": "gemini-cli.showNotices",
-        "title": "Gemini CLI: View Third-Party Notices"
+        "command": "coder-cli.showNotices",
+        "title": "Coder CLI: View Third-Party Notices"
       }
     ],
     "menus": {
       "commandPalette": [
         {
-          "command": "gemini.diff.accept",
-          "when": "gemini.diff.isVisible"
+          "command": "coder.diff.accept",
+          "when": "coder.diff.isVisible"
         },
         {
-          "command": "gemini.diff.cancel",
-          "when": "gemini.diff.isVisible"
+          "command": "coder.diff.cancel",
+          "when": "coder.diff.isVisible"
         }
       ],
       "editor/title": [
         {
-          "command": "gemini.diff.accept",
-          "when": "gemini.diff.isVisible",
+          "command": "coder.diff.accept",
+          "when": "coder.diff.isVisible",
           "group": "navigation"
         },
         {
-          "command": "gemini.diff.cancel",
-          "when": "gemini.diff.isVisible",
+          "command": "coder.diff.cancel",
+          "when": "coder.diff.isVisible",
           "group": "navigation"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "gemini.diff.accept",
+        "command": "coder.diff.accept",
         "key": "ctrl+s",
-        "when": "gemini.diff.isVisible"
+        "when": "coder.diff.isVisible"
       },
       {
-        "command": "gemini.diff.accept",
+        "command": "coder.diff.accept",
         "key": "cmd+s",
-        "when": "gemini.diff.isVisible"
+        "when": "coder.diff.isVisible"
       }
     ]
   },

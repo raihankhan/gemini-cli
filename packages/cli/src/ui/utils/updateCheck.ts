@@ -8,7 +8,7 @@ import latestVersion from 'latest-version';
 import semver from 'semver';
 import { getPackageJson } from '../../utils/package.js';
 import type { LoadedSettings } from '../../config/settings.js';
-import { debugLogger } from '@google/gemini-cli-core';
+import { debugLogger } from '@google/coder-cli-core';
 
 export const FETCH_TIMEOUT_MS = 2000;
 

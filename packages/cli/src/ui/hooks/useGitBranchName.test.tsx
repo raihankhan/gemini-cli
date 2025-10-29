@@ -12,13 +12,13 @@ import { useGitBranchName } from './useGitBranchName.js';
 import { fs, vol } from 'memfs';
 import * as fsPromises from 'node:fs/promises';
 import path from 'node:path'; // For mocking fs
-import { spawnAsync as mockSpawnAsync } from '@google/gemini-cli-core';
+import { spawnAsync as mockSpawnAsync } from '@google/coder-cli-core';
 
-// Mock @google/gemini-cli-core
-vi.mock('@google/gemini-cli-core', async () => {
+// Mock @google/coder-cli-core
+vi.mock('@google/coder-cli-core', async () => {
   const original = await vi.importActual<
-    typeof import('@google/gemini-cli-core')
-  >('@google/gemini-cli-core');
+    typeof import('@google/coder-cli-core')
+  >('@google/coder-cli-core');
   return {
     ...original,
     spawnAsync: vi.fn(),

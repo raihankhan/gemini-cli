@@ -8,7 +8,7 @@ import { render } from 'ink-testing-library';
 import { describe, it, expect } from 'vitest';
 import { Box } from 'ink';
 import { TodoTray } from './Todo.js';
-import type { Todo } from '@google/gemini-cli-core';
+import type { Todo } from '@google/coder-cli-core';
 import type { UIState } from '../../contexts/UIStateContext.js';
 import { UIStateContext } from '../../contexts/UIStateContext.js';
 import type { HistoryItem } from '../../types.js';

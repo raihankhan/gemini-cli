@@ -13,7 +13,7 @@ import type { ContentGenerator } from '../core/contentGenerator.js';
 import type { Config } from '../config/config.js';
 import type { NextSpeakerResponse } from './nextSpeakerChecker.js';
 import { checkNextSpeaker } from './nextSpeakerChecker.js';
-import { GeminiChat } from '../core/geminiChat.js';
+import { GeminiChat } from '../core/coderChat.js';
 
 // Mock fs module to prevent actual file system operations during tests
 const mockFileSystem = new Map<string, string>();

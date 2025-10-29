@@ -9,7 +9,7 @@ import * as path from 'node:path';
 import { homedir } from 'node:os';
 import * as dotenv from 'dotenv';
 
-import type { TelemetryTarget } from '@google/gemini-cli-core';
+import type { TelemetryTarget } from '@google/coder-cli-core';
 import {
   AuthType,
   Config,
@@ -23,7 +23,7 @@ import {
   type GeminiCLIExtension,
   type ExtensionLoader,
   debugLogger,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 
 import { logger } from '../utils/logger.js';
 import type { Settings } from './settings.js';
@@ -107,12 +107,12 @@ export async function loadConfig(
     logger.info(
       `[Config] GOOGLE_CLOUD_PROJECT: ${process.env['GOOGLE_CLOUD_PROJECT']}`,
     );
-  } else if (process.env['GEMINI_API_KEY']) {
+  } else if (process.env['CODER_API_KEY']) {
     logger.info('[Config] Using Gemini API Key');
     await config.refreshAuth(AuthType.USE_GEMINI);
   } else {
     const errorMessage =
-      '[Config] Unable to set GeneratorConfig. Please provide a GEMINI_API_KEY or set USE_CCPA.';
+      '[Config] Unable to set GeneratorConfig. Please provide a CODER_API_KEY or set USE_CCPA.';
     logger.error(errorMessage);
     throw new Error(errorMessage);
   }

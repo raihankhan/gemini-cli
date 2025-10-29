@@ -17,7 +17,7 @@ import { act, useEffect } from 'react';
 import { render } from 'ink-testing-library';
 import { useCommandCompletion } from './useCommandCompletion.js';
 import type { CommandContext } from '../commands/types.js';
-import type { Config } from '@google/gemini-cli-core';
+import type { Config } from '@google/coder-cli-core';
 import { useTextBuffer } from '../components/shared/text-buffer.js';
 import type { Suggestion } from '../components/SuggestionsDisplay.js';
 import type { UseAtCompletionProps } from './useAtCompletion.js';

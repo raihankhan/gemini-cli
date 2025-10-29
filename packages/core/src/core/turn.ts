@@ -26,8 +26,8 @@ import {
   UnauthorizedError,
   toFriendlyError,
 } from '../utils/errors.js';
-import type { GeminiChat } from './geminiChat.js';
-import { InvalidStreamError } from './geminiChat.js';
+import type { GeminiChat } from './coderChat.js';
+import { InvalidStreamError } from './coderChat.js';
 import { parseThought, type ThoughtSummary } from '../utils/thoughtUtils.js';
 import { createUserContent } from '@google/genai';
 

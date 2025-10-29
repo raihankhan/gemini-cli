@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { AuthType } from '@google/gemini-cli-core';
+import { AuthType } from '@google/coder-cli-core';
 import { vi } from 'vitest';
 import { validateAuthMethod } from './auth.js';
 
@@ -18,7 +18,7 @@ vi.mock('./settings.js', () => ({
 describe('validateAuthMethod', () => {
   beforeEach(() => {
     vi.resetModules();
-    vi.stubEnv('GEMINI_API_KEY', undefined);
+    vi.stubEnv('CODER_API_KEY', undefined);
     vi.stubEnv('GOOGLE_CLOUD_PROJECT', undefined);
     vi.stubEnv('GOOGLE_CLOUD_LOCATION', undefined);
     vi.stubEnv('GOOGLE_API_KEY', undefined);
@@ -37,17 +37,17 @@ describe('validateAuthMethod', () => {
   });
 
   describe('USE_GEMINI', () => {
-    it('should return null if GEMINI_API_KEY is set', () => {
-      vi.stubEnv('GEMINI_API_KEY', 'test-key');
+    it('should return null if CODER_API_KEY is set', () => {
+      vi.stubEnv('CODER_API_KEY', 'test-key');
       expect(validateAuthMethod(AuthType.USE_GEMINI)).toBeNull();
     });
 
-    it('should return an error message if GEMINI_API_KEY is not set', () => {
-      vi.stubEnv('GEMINI_API_KEY', undefined);
+    it('should return an error message if CODER_API_KEY is not set', () => {
+      vi.stubEnv('CODER_API_KEY', undefined);
       expect(validateAuthMethod(AuthType.USE_GEMINI)).toBe(
-        'GEMINI_API_KEY not found. Find your existing key or generate a new one at: https://aistudio.google.com/apikey\n' +
+        'CODER_API_KEY not found. Find your existing key or generate a new one at: https://aistudio.google.com/apikey\n' +
           '\n' +
-          'To continue, please set the GEMINI_API_KEY environment variable or add it to a .env file.',
+          'To continue, please set the CODER_API_KEY environment variable or add it to a .env file.',
       );
     });
   });

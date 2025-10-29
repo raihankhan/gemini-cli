@@ -6,8 +6,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import type { LoadedSettings } from '../../config/settings.js';
-import { AuthType, debugLogger, type Config } from '@google/gemini-cli-core';
-import { getErrorMessage } from '@google/gemini-cli-core';
+import { AuthType, debugLogger, type Config } from '@google/coder-cli-core';
+import { getErrorMessage } from '@google/coder-cli-core';
 import { AuthState } from '../types.js';
 import { validateAuthMethod } from '../../config/auth.js';
 
@@ -50,9 +50,9 @@ export const useAuthCommand = (settings: LoadedSettings, config: Config) => {
 
       const authType = settings.merged.security?.auth?.selectedType;
       if (!authType) {
-        if (process.env['GEMINI_API_KEY']) {
+        if (process.env['CODER_API_KEY']) {
           onAuthError(
-            'Existing API key detected (GEMINI_API_KEY). Select "Gemini API Key" option to use it.',
+            'Existing API key detected (CODER_API_KEY). Select "Gemini API Key" option to use it.',
           );
         } else {
           onAuthError('No authentication method selected.');

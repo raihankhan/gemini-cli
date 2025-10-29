@@ -55,10 +55,10 @@ describe('IdeClient', () => {
       undefined;
 
     // Mock environment variables
-    process.env['GEMINI_CLI_IDE_WORKSPACE_PATH'] = '/test/workspace';
-    delete process.env['GEMINI_CLI_IDE_SERVER_PORT'];
-    delete process.env['GEMINI_CLI_IDE_SERVER_STDIO_COMMAND'];
-    delete process.env['GEMINI_CLI_IDE_SERVER_STDIO_ARGS'];
+    process.env['CODER_CLI_IDE_WORKSPACE_PATH'] = '/test/workspace';
+    delete process.env['CODER_CLI_IDE_SERVER_PORT'];
+    delete process.env['CODER_CLI_IDE_SERVER_STDIO_COMMAND'];
+    delete process.env['CODER_CLI_IDE_SERVER_STDIO_ARGS'];
 
     // Mock dependencies
     vi.spyOn(process, 'cwd').mockReturnValue('/test/workspace/sub-dir');
@@ -175,7 +175,7 @@ describe('IdeClient', () => {
           (path: fs.PathLike) => Promise<string[]>
         >
       ).mockResolvedValue([]);
-      process.env['GEMINI_CLI_IDE_SERVER_PORT'] = '9090';
+      process.env['CODER_CLI_IDE_SERVER_PORT'] = '9090';
 
       const ideClient = await IdeClient.getInstance();
       await ideClient.connect();
@@ -199,8 +199,8 @@ describe('IdeClient', () => {
           (path: fs.PathLike) => Promise<string[]>
         >
       ).mockResolvedValue([]);
-      process.env['GEMINI_CLI_IDE_SERVER_STDIO_COMMAND'] = 'env-cmd';
-      process.env['GEMINI_CLI_IDE_SERVER_STDIO_ARGS'] = '["--bar"]';
+      process.env['CODER_CLI_IDE_SERVER_STDIO_COMMAND'] = 'env-cmd';
+      process.env['CODER_CLI_IDE_SERVER_STDIO_ARGS'] = '["--bar"]';
 
       const ideClient = await IdeClient.getInstance();
       await ideClient.connect();
@@ -223,7 +223,7 @@ describe('IdeClient', () => {
           (path: fs.PathLike) => Promise<string[]>
         >
       ).mockResolvedValue([]);
-      process.env['GEMINI_CLI_IDE_SERVER_PORT'] = '9090';
+      process.env['CODER_CLI_IDE_SERVER_PORT'] = '9090';
 
       const ideClient = await IdeClient.getInstance();
       await ideClient.connect();
@@ -407,7 +407,7 @@ describe('IdeClient', () => {
     });
 
     it('should prioritize the config matching the port from the environment variable', async () => {
-      process.env['GEMINI_CLI_IDE_SERVER_PORT'] = '2222';
+      process.env['CODER_CLI_IDE_SERVER_PORT'] = '2222';
       const config1 = { port: '1111', workspacePath: '/test/workspace' };
       const config2 = { port: '2222', workspacePath: '/test/workspace2' };
       vi.mocked(fs.promises.readFile).mockRejectedValueOnce(
@@ -526,7 +526,7 @@ describe('IdeClient', () => {
     });
 
     it('should match env port string to a number port in the config', async () => {
-      process.env['GEMINI_CLI_IDE_SERVER_PORT'] = '3333';
+      process.env['CODER_CLI_IDE_SERVER_PORT'] = '3333';
       const config1 = { port: 1111, workspacePath: '/test/workspace' };
       const config2 = { port: 3333, workspacePath: '/test/workspace2' };
       vi.mocked(fs.promises.readFile).mockRejectedValueOnce(

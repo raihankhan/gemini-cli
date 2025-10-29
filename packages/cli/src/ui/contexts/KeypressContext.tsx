@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { Config } from '@google/gemini-cli-core';
+import type { Config } from '@google/coder-cli-core';
 import {
   debugLogger,
   KittySequenceOverflowEvent,
   logKittySequenceOverflow,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 import { useStdin } from 'ink';
 import type React from 'react';
 import {

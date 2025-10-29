@@ -4,13 +4,13 @@ We would love to accept your patches and contributions to this project. This
 document includes:
 
 - **[Before you begin](#before-you-begin):** Essential steps to take before
-  becoming a Gemini CLI contributor.
+  becoming a Coder CLI contributor.
 - **[Code contribution process](#code-contribution-process):** How to contribute
-  code to Gemini CLI.
+  code to Coder CLI.
 - **[Development setup and workflow](#development-setup-and-workflow):** How to
   set up your development environment and workflow.
 - **[Documentation contribution process](#documentation-contribution-process):**
-  How to contribute documentation to Gemini CLI.
+  How to contribute documentation to Coder CLI.
 
 We're looking forward to seeing your contributions!
 
@@ -57,7 +57,7 @@ for this purpose.
 
 If you're looking for an issue to work on, check out our list of issues that are
 labeled
-["help wanted"](https://github.com/google-gemini/gemini-cli/issues?q=is%3Aissue+state%3Aopen+label%3A%22help+wanted%22).
+["help wanted"](https://github.com/google-gemini/coder-cli/issues?q=is%3Aissue+state%3Aopen+label%3A%22help+wanted%22).
 
 To assign an issue to yourself, simply add a comment with the text `/assign`.
 The comment must contain only that text and nothing else. This command will
@@ -135,7 +135,7 @@ If you are forking the repository you will be able to run the Build, Test and
 Integration test workflows. However in order to make the integration tests run
 you'll need to add a
 [GitHub Repository Secret](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)
-with a value of `GEMINI_API_KEY` and set that to a valid API key that you have
+with a value of `CODER_API_KEY` and set that to a valid API key that you have
 available. Your key and secret are private to your repo; no one without access
 can see your key and you cannot see any secrets related to this repo.
 
@@ -165,8 +165,8 @@ development setup of this project.
 To clone the repository:
 
 ```bash
-git clone https://github.com/google-gemini/gemini-cli.git # Or your fork's URL
-cd gemini-cli
+git clone https://github.com/google-gemini/coder-cli.git # Or your fork's URL
+cd coder-cli
 ```
 
 To install dependencies defined in `package.json` as well as root dependencies:
@@ -188,8 +188,8 @@ prepares the packages for execution. Refer to `scripts/build.js` and
 ### Enabling sandboxing
 
 [Sandboxing](#sandboxing) is highly recommended and requires, at a minimum,
-setting `GEMINI_SANDBOX=true` in your `~/.env` and ensuring a sandboxing
-provider (e.g. `macOS Seatbelt`, `docker`, or `podman`) is available. See
+setting `CODER_SANDBOX=true` in your `~/.env` and ensuring a sandboxing provider
+(e.g. `macOS Seatbelt`, `docker`, or `podman`) is available. See
 [Sandboxing](#sandboxing) for details.
 
 To build both the `gemini` CLI utility and the sandbox container, run
@@ -203,17 +203,17 @@ To skip building the sandbox container, you can use `npm run build` instead.
 
 ### Running the CLI
 
-To start the Gemini CLI from the source code (after building), run the following
+To start the Coder CLI from the source code (after building), run the following
 command from the root directory:
 
 ```bash
 npm start
 ```
 
-If you'd like to run the source build outside of the gemini-cli folder, you can
-utilize `npm link path/to/gemini-cli/packages/cli` (see:
+If you'd like to run the source build outside of the coder-cli folder, you can
+utilize `npm link path/to/coder-cli/packages/cli` (see:
 [docs](https://docs.npmjs.com/cli/v9/commands/npm-link)) or
-`alias gemini="node path/to/gemini-cli/packages/cli"` to run with `gemini`
+`alias gemini="node path/to/coder-cli/packages/cli"` to run with `gemini`
 
 ### Running tests
 
@@ -234,7 +234,7 @@ comprehensive check, it is recommended to run `npm run preflight`.
 #### Integration tests
 
 The integration tests are designed to validate the end-to-end functionality of
-the Gemini CLI. They are not run as part of the default `npm run test` command.
+the Coder CLI. They are not run as part of the default `npm run test` command.
 
 To run the integration tests, use the following command:
 
@@ -297,7 +297,7 @@ npm run lint
 - Please adhere to the coding style, patterns, and conventions used throughout
   the existing codebase.
 - Consult
-  [GEMINI.md](https://github.com/google-gemini/gemini-cli/blob/main/GEMINI.md)
+  [GEMINI.md](https://github.com/google-gemini/coder-cli/blob/main/GEMINI.md)
   (typically found in the project root) for specific instructions related to
   AI-assisted development, including conventions for React, comments, and Git
   usage.
@@ -307,13 +307,13 @@ npm run lint
 ### Project structure
 
 - `packages/`: Contains the individual sub-packages of the project.
-  - `a2a-server`: A2A server implementation for the Gemini CLI. (Experimental)
+  - `a2a-server`: A2A server implementation for the Coder CLI. (Experimental)
   - `cli/`: The command-line interface.
-  - `core/`: The core backend logic for the Gemini CLI.
+  - `core/`: The core backend logic for the Coder CLI.
   - `test-utils` Utilities for creating and cleaning temporary file systems for
     testing.
-  - `vscode-ide-companion/`: The Gemini CLI Companion extension pairs with
-    Gemini CLI.
+  - `vscode-ide-companion/`: The Coder CLI Companion extension pairs with Coder
+    CLI.
 - `docs/`: Contains all project documentation.
 - `scripts/`: Utility scripts for building, testing, and development tasks.
 
@@ -346,7 +346,7 @@ DEBUG=1 gemini
 ```
 
 **Note:** If you have `DEBUG=true` in a project's `.env` file, it won't affect
-gemini-cli due to automatic exclusion. Use `.gemini/.env` files for gemini-cli
+coder-cli due to automatic exclusion. Use `.coder/.env` files for coder-cli
 specific debug settings.
 
 ### React DevTools
@@ -354,7 +354,7 @@ specific debug settings.
 To debug the CLI's React-based UI, you can use React DevTools. Ink, the library
 used for the CLI's interface, is compatible with React DevTools version 4.x.
 
-1.  **Start the Gemini CLI in development mode:**
+1.  **Start the Coder CLI in development mode:**
 
     ```bash
     DEV=true npm start
@@ -394,15 +394,15 @@ operations and outbound network traffic ("closed") by default by setting
 Available built-in profiles are `{permissive,restrictive}-{open,closed,proxied}`
 (see below for proxied networking). You can also switch to a custom profile
 `SEATBELT_PROFILE=<profile>` if you also create a file
-`.gemini/sandbox-macos-<profile>.sb` under your project settings directory
-`.gemini`.
+`.coder/sandbox-macos-<profile>.sb` under your project settings directory
+`.coder`.
 
 #### Container-based sandboxing (all platforms)
 
 For stronger container-based sandboxing on macOS or other platforms, you can set
-`GEMINI_SANDBOX=true|docker|podman|<command>` in your environment or `.env`
-file. The specified command (or if `true` then either `docker` or `podman`) must
-be installed on the host machine. Once enabled, `npm run build:all` will build a
+`CODER_SANDBOX=true|docker|podman|<command>` in your environment or `.env` file.
+The specified command (or if `true` then either `docker` or `podman`) must be
+installed on the host machine. Once enabled, `npm run build:all` will build a
 minimal container ("sandbox") image and `npm start` will launch inside a fresh
 instance of that container. The first build can take 20-30s (mostly due to
 downloading of the base image) but after that both build and start overhead
@@ -411,12 +411,12 @@ sandbox.
 
 Container-based sandboxing mounts the project directory (and system temp
 directory) with read-write access and is started/stopped/removed automatically
-as you start/stop Gemini CLI. Files created within the sandbox should be
+as you start/stop Coder CLI. Files created within the sandbox should be
 automatically mapped to your user/group on host machine. You can easily specify
 additional mounts, ports, or environment variables by setting
 `SANDBOX_{MOUNTS,PORTS,ENV}` as needed. You can also fully customize the sandbox
-for your projects by creating the files `.gemini/sandbox.Dockerfile` and/or
-`.gemini/sandbox.bashrc` under your project settings directory (`.gemini`) and
+for your projects by creating the files `.coder/sandbox.Dockerfile` and/or
+`.coder/sandbox.bashrc` under your project settings directory (`.coder`) and
 running `gemini` with `BUILD_SANDBOX=1` to trigger building of your custom
 sandbox.
 
@@ -424,7 +424,7 @@ sandbox.
 
 All sandboxing methods, including macOS Seatbelt using `*-proxied` profiles,
 support restricting outbound network traffic through a custom proxy server that
-can be specified as `GEMINI_SANDBOX_PROXY_COMMAND=<command>`, where `<command>`
+can be specified as `CODER_SANDBOX_PROXY_COMMAND=<command>`, where `<command>`
 must start a proxy server that listens on `:::8877` for relevant requests. See
 `docs/examples/proxy-script.md` for a minimal proxy that only allows `HTTPS`
 connections to `example.com:443` (e.g. `curl https://example.com`) and declines
@@ -453,7 +453,7 @@ our documentation to be clear, concise, and helpful to our users. We value:
 - **Accuracy:** Ensure all information is correct and up-to-date.
 - **Completeness:** Cover all aspects of a feature or topic.
 - **Examples:** Provide practical examples to help users understand how to use
-  Gemini CLI.
+  Coder CLI.
 
 ### Getting started
 
@@ -526,8 +526,8 @@ If you have questions about contributing documentation:
 
 - Check our [FAQ](/docs/faq.md).
 - Review existing documentation for examples.
-- Open [an issue](https://github.com/google-gemini/gemini-cli/issues) to discuss
+- Open [an issue](https://github.com/google-gemini/coder-cli/issues) to discuss
   your proposed changes.
 - Reach out to the maintainers.
 
-We appreciate your contributions to making Gemini CLI documentation better!
+We appreciate your contributions to making Coder CLI documentation better!

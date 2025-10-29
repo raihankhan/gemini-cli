@@ -14,7 +14,7 @@ import {
   GeminiChat,
   StreamEventType,
   type StreamEvent,
-} from '../core/geminiChat.js';
+} from '../core/coderChat.js';
 import {
   type FunctionCall,
   type Part,
@@ -42,8 +42,8 @@ const { mockSendMessageStream, mockExecuteToolCall } = vi.hoisted(() => ({
   mockExecuteToolCall: vi.fn(),
 }));
 
-vi.mock('../core/geminiChat.js', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('../core/geminiChat.js')>();
+vi.mock('../core/coderChat.js', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../core/coderChat.js')>();
   return {
     ...actual,
     GeminiChat: vi.fn().mockImplementation(() => ({

@@ -12,7 +12,7 @@ import type {
   ToolResult,
   ToolCallConfirmationDetails,
   FilterFilesOptions,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 import {
   AuthType,
   logToolCall,
@@ -31,7 +31,7 @@ import {
   DEFAULT_GEMINI_MODEL_AUTO,
   DEFAULT_GEMINI_FLASH_MODEL,
   debugLogger,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 import * as acp from './acp.js';
 import { AcpFileSystemService } from './fileSystemService.js';
 import { Readable, Writable } from 'node:stream';
@@ -105,7 +105,7 @@ class GeminiAgent {
         id: AuthType.USE_GEMINI,
         name: 'Use Gemini API key',
         description:
-          'Requires setting the `GEMINI_API_KEY` environment variable',
+          'Requires setting the `CODER_API_KEY` environment variable',
       },
       {
         id: AuthType.USE_VERTEX_AI,

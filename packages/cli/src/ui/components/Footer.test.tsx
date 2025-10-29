@@ -9,12 +9,12 @@ import {
   createMockSettings,
 } from '../../test-utils/render.js';
 import { Footer } from './Footer.js';
-import { tildeifyPath, ToolCallDecision } from '@google/gemini-cli-core';
+import { tildeifyPath, ToolCallDecision } from '@google/coder-cli-core';
 import type { SessionStatsState } from '../contexts/SessionContext.js';
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@google/coder-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+    await importOriginal<typeof import('@google/coder-cli-core')>();
   return {
     ...original,
     shortenPath: (p: string, len: number) => {

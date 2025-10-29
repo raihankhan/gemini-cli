@@ -17,7 +17,7 @@ import {
   InvalidStreamError,
   StreamEventType,
   type StreamEvent,
-} from './geminiChat.js';
+} from './coderChat.js';
 import type { Config } from '../config/config.js';
 import { setSimulate429 } from '../utils/testUtils.js';
 import { DEFAULT_GEMINI_FLASH_MODEL } from '../config/models.js';
