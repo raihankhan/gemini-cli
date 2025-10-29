@@ -18,7 +18,7 @@ import {
   setupUnhandledRejectionHandler,
   validateDnsResolutionOrder,
   startInteractiveUI,
-} from './gemini.js';
+} from './coder.js';
 import { type LoadedSettings } from './config/settings.js';
 import { appEvents, AppEvent } from './utils/events.js';
 import type { Config } from '@google/coder-cli-core';
