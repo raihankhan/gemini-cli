@@ -1,10 +1,10 @@
 {
-  "name": "@google/gemini-cli-core",
+  "name": "@google/coder-cli-core",
   "version": "0.13.0-nightly.20251029.cca41edc",
-  "description": "Gemini CLI Core",
+  "description": "Coder CLI Core - Computational Operations Directed by Enhanced Reasoning",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/google-gemini/gemini-cli.git"
+    "url": "git+https://github.com/raihankhan/gemini-cli.git"
   },
   "type": "module",
   "main": "dist/index.js",
@@ -76,7 +76,7 @@
     "node-pty": "^1.0.0"
   },
   "devDependencies": {
-    "@google/gemini-cli-test-utils": "file:../test-utils",
+    "@google/coder-cli-test-utils": "file:../test-utils",
     "@types/diff": "^7.0.2",
     "@types/dotenv": "^6.1.1",
     "@types/fast-levenshtein": "^0.0.4",

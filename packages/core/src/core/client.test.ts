@@ -25,7 +25,7 @@ import {
   type ContentGenerator,
   type ContentGeneratorConfig,
 } from './contentGenerator.js';
-import { type GeminiChat } from './geminiChat.js';
+import { type GeminiChat } from './coderChat.js';
 import type { Config } from '../config/config.js';
 import {
   CompressionStatus,

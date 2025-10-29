@@ -66,7 +66,7 @@ import {
   saveSettings,
   type SettingsFile,
 } from './settings.js';
-import { FatalConfigError, GEMINI_DIR } from '@google/gemini-cli-core';
+import { FatalConfigError, GEMINI_DIR } from '@google/coder-cli-core';
 import { ExtensionManager } from './extension-manager.js';
 import { updateSettingsFilePreservingFormat } from '../utils/commentJson.js';
 
@@ -102,9 +102,9 @@ const mockCoreEvents = vi.hoisted(() => ({
   emitFeedback: vi.fn(),
 }));
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@google/coder-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+    await importOriginal<typeof import('@google/coder-cli-core')>();
   return {
     ...actual,
     coreEvents: mockCoreEvents,
@@ -1760,7 +1760,7 @@ describe('Settings Loading and Merging', () => {
       (fs.readFileSync as Mock).mockImplementation(
         (p: fs.PathOrFileDescriptor) => {
           if (p === '/mock/project/.env') {
-            return 'DEBUG=true\nDEBUG_MODE=1\nGEMINI_API_KEY=test-key';
+            return 'DEBUG=true\nDEBUG_MODE=1\nCODER_API_KEY=test-key';
           }
           if (p === MOCK_WORKSPACE_SETTINGS_PATH) {
             return JSON.stringify(workspaceSettingsContent);

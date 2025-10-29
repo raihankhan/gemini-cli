@@ -32,7 +32,7 @@ import {
   runExitCleanup,
 } from './utils/cleanup.js';
 import { getCliVersion } from './utils/version.js';
-import type { Config } from '@google/gemini-cli-core';
+import type { Config } from '@google/coder-cli-core';
 import {
   sessionId,
   logUserPrompt,
@@ -40,7 +40,7 @@ import {
   getOauthClient,
   UserPromptEvent,
   debugLogger,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 import {
   initializeApp,
   type InitializationResult,

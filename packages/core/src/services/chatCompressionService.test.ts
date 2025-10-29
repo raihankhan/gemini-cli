@@ -13,7 +13,7 @@ import type { Content, GenerateContentResponse } from '@google/genai';
 import { CompressionStatus } from '../core/turn.js';
 import { uiTelemetryService } from '../telemetry/uiTelemetry.js';
 import { tokenLimit } from '../core/tokenLimits.js';
-import type { GeminiChat } from '../core/geminiChat.js';
+import type { GeminiChat } from '../core/coderChat.js';
 import type { Config } from '../config/config.js';
 import { getInitialChatHistory } from '../utils/environmentContext.js';
 import type { ContentGenerator } from '../core/contentGenerator.js';

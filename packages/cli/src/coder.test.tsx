@@ -21,7 +21,7 @@ import {
 } from './gemini.js';
 import { type LoadedSettings } from './config/settings.js';
 import { appEvents, AppEvent } from './utils/events.js';
-import type { Config } from '@google/gemini-cli-core';
+import type { Config } from '@google/coder-cli-core';
 
 // Custom error to identify mock process.exit calls
 class MockProcessExitError extends Error {
@@ -106,9 +106,9 @@ describe('gemini.tsx main function', () => {
 
   beforeEach(() => {
     // Store and clear sandbox-related env variables to ensure a consistent test environment
-    originalEnvGeminiSandbox = process.env['GEMINI_SANDBOX'];
+    originalEnvGeminiSandbox = process.env['CODER_SANDBOX'];
     originalEnvSandbox = process.env['SANDBOX'];
-    delete process.env['GEMINI_SANDBOX'];
+    delete process.env['CODER_SANDBOX'];
     delete process.env['SANDBOX'];
 
     initialUnhandledRejectionListeners =
@@ -118,9 +118,9 @@ describe('gemini.tsx main function', () => {
   afterEach(() => {
     // Restore original env variables
     if (originalEnvGeminiSandbox !== undefined) {
-      process.env['GEMINI_SANDBOX'] = originalEnvGeminiSandbox;
+      process.env['CODER_SANDBOX'] = originalEnvGeminiSandbox;
     } else {
-      delete process.env['GEMINI_SANDBOX'];
+      delete process.env['CODER_SANDBOX'];
     }
     if (originalEnvSandbox !== undefined) {
       process.env['SANDBOX'] = originalEnvSandbox;

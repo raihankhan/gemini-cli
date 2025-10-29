@@ -23,7 +23,7 @@ import { useUIActions } from '../contexts/UIActionsContext.js';
 import { useVimMode } from '../contexts/VimModeContext.js';
 import { useConfig } from '../contexts/ConfigContext.js';
 import { useSettings } from '../contexts/SettingsContext.js';
-import { ApprovalMode } from '@google/gemini-cli-core';
+import { ApprovalMode } from '@google/coder-cli-core';
 import { StreamingState } from '../types.js';
 import { ConfigInitDisplay } from '../components/ConfigInitDisplay.js';
 import { TodoTray } from './messages/Todo.js';
@@ -80,7 +80,7 @@ export const Composer = () => {
         alignItems={isNarrow ? 'flex-start' : 'center'}
       >
         <Box marginRight={1}>
-          {process.env['GEMINI_SYSTEM_MD'] && (
+          {process.env['CODER_SYSTEM_MD'] && (
             <Text color={theme.status.error}>|⌐■_■| </Text>
           )}
           {uiState.ctrlCPressedOnce ? (

@@ -7,7 +7,7 @@
 import type { Content } from '@google/genai';
 import { DEFAULT_GEMINI_FLASH_MODEL } from '../config/models.js';
 import type { BaseLlmClient } from '../core/baseLlmClient.js';
-import type { GeminiChat } from '../core/geminiChat.js';
+import type { GeminiChat } from '../core/coderChat.js';
 import { isFunctionResponse } from './messageInspectors.js';
 import { debugLogger } from './debugLogger.js';
 

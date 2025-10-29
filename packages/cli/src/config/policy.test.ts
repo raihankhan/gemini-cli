@@ -12,7 +12,7 @@ import {
   ApprovalMode,
   PolicyDecision,
   WEB_FETCH_TOOL_NAME,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 
 afterEach(() => {
   vi.clearAllMocks();

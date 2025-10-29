@@ -17,7 +17,7 @@ import { ConfigContext } from '../ui/contexts/ConfigContext.js';
 import { calculateMainAreaWidth } from '../ui/utils/ui-sizing.js';
 import { VimModeProvider } from '../ui/contexts/VimModeContext.js';
 
-import { type Config } from '@google/gemini-cli-core';
+import { type Config } from '@google/coder-cli-core';
 
 const mockConfig = {
   getModel: () => 'gemini-pro',

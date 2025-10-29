@@ -37,7 +37,7 @@ import {
 } from '../telemetry/types.js';
 import { handleFallback } from '../fallback/handler.js';
 import { isFunctionResponse } from '../utils/messageInspectors.js';
-import { partListUnionToString } from './geminiRequest.js';
+import { partListUnionToString } from './coderRequest.js';
 import { uiTelemetryService } from '../telemetry/uiTelemetry.js';
 
 export enum StreamEventType {

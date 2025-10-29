@@ -5,9 +5,9 @@
  */
 
 import type { GitIgnoreFilter } from '../utils/gitIgnoreParser.js';
-import type { GeminiIgnoreFilter } from '../utils/geminiIgnoreParser.js';
+import type { GeminiIgnoreFilter } from '../utils/coderIgnoreParser.js';
 import { GitIgnoreParser } from '../utils/gitIgnoreParser.js';
-import { GeminiIgnoreParser } from '../utils/geminiIgnoreParser.js';
+import { GeminiIgnoreParser } from '../utils/coderIgnoreParser.js';
 import { isGitRepository } from '../utils/gitUtils.js';
 import * as path from 'node:path';
 

@@ -16,7 +16,7 @@ import {
   clearCachedCredentialFile,
   debugLogger,
   type Config,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 import { useKeypress } from '../hooks/useKeypress.js';
 import { AuthState } from '../types.js';
 import { runExitCleanup } from '../../utils/cleanup.js';
@@ -88,7 +88,7 @@ export function AuthDialog({
       return item.value === defaultAuthType;
     }
 
-    if (process.env['GEMINI_API_KEY']) {
+    if (process.env['CODER_API_KEY']) {
       return item.value === AuthType.USE_GEMINI;
     }
 

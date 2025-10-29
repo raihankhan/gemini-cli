@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { AuthType } from '@google/gemini-cli-core';
+import { AuthType } from '@google/coder-cli-core';
 import { loadEnvironment, loadSettings } from './settings.js';
 
 export function validateAuthMethod(authMethod: string): string | null {
@@ -17,11 +17,11 @@ export function validateAuthMethod(authMethod: string): string | null {
   }
 
   if (authMethod === AuthType.USE_GEMINI) {
-    if (!process.env['GEMINI_API_KEY']) {
+    if (!process.env['CODER_API_KEY']) {
       return (
-        'GEMINI_API_KEY not found. Find your existing key or generate a new one at: https://aistudio.google.com/apikey\n' +
+        'CODER_API_KEY not found. Find your existing key or generate a new one at: https://aistudio.google.com/apikey\n' +
         '\n' +
-        'To continue, please set the GEMINI_API_KEY environment variable or add it to a .env file.'
+        'To continue, please set the CODER_API_KEY environment variable or add it to a .env file.'
       );
     }
     return null;

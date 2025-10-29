@@ -8,11 +8,8 @@ import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { tmpdir } from 'node:os';
-import type { ConfigParameters } from '@google/gemini-cli-core';
-import {
-  Config,
-  DEFAULT_FILE_FILTERING_OPTIONS,
-} from '@google/gemini-cli-core';
+import type { ConfigParameters } from '@google/coder-cli-core';
+import { Config, DEFAULT_FILE_FILTERING_OPTIONS } from '@google/coder-cli-core';
 import type { Settings } from './settingsSchema.js';
 import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
@@ -35,8 +32,8 @@ afterAll(() => {
 const CLEARCUT_URL = 'https://play.googleapis.com/log';
 
 // Mock file discovery service and tool registry
-vi.mock('@google/gemini-cli-core', async () => {
-  const actual = await vi.importActual('@google/gemini-cli-core');
+vi.mock('@google/coder-cli-core', async () => {
+  const actual = await vi.importActual('@google/coder-cli-core');
   return {
     ...actual,
     FileDiscoveryService: vi.fn().mockImplementation(() => ({
@@ -53,7 +50,7 @@ describe('Configuration Integration Tests', () => {
     server.resetHandlers(http.post(CLEARCUT_URL, () => HttpResponse.text()));
 
     tempDir = fs.mkdtempSync(path.join(tmpdir(), 'gemini-cli-test-'));
-    vi.stubEnv('GEMINI_API_KEY', 'test-api-key');
+    vi.stubEnv('CODER_API_KEY', 'test-api-key');
     vi.clearAllMocks();
   });
 

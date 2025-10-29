@@ -6,7 +6,7 @@
 
 import type { Config } from '../config/config.js';
 import { reportError } from '../utils/errorReporting.js';
-import { GeminiChat, StreamEventType } from '../core/geminiChat.js';
+import { GeminiChat, StreamEventType } from '../core/coderChat.js';
 import { Type } from '@google/genai';
 import type {
   Content,

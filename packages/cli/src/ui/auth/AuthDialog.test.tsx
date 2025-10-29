@@ -15,7 +15,7 @@ import {
   type Mock,
 } from 'vitest';
 import { AuthDialog } from './AuthDialog.js';
-import { AuthType, type Config } from '@google/gemini-cli-core';
+import { AuthType, type Config } from '@google/coder-cli-core';
 import type { LoadedSettings } from '../../config/settings.js';
 import { SettingScope } from '../../config/settings.js';
 import { AuthState } from '../types.js';
@@ -23,13 +23,13 @@ import { RadioButtonSelect } from '../components/shared/RadioButtonSelect.js';
 import { useKeypress } from '../hooks/useKeypress.js';
 import { validateAuthMethodWithSettings } from './useAuth.js';
 import { runExitCleanup } from '../../utils/cleanup.js';
-import { clearCachedCredentialFile } from '@google/gemini-cli-core';
+import { clearCachedCredentialFile } from '@google/coder-cli-core';
 import { Text } from 'ink';
 
 // Mocks
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@google/coder-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+    await importOriginal<typeof import('@google/coder-cli-core')>();
   return {
     ...actual,
     clearCachedCredentialFile: vi.fn(),
@@ -143,8 +143,8 @@ describe('AuthDialog', () => {
     expect(items[initialIndex].value).toBe(AuthType.USE_GEMINI);
   });
 
-  it('selects initial auth type from GEMINI_API_KEY env var', () => {
-    process.env['GEMINI_API_KEY'] = 'test-key';
+  it('selects initial auth type from CODER_API_KEY env var', () => {
+    process.env['CODER_API_KEY'] = 'test-key';
     renderWithProviders(<AuthDialog {...props} />);
     const { items, initialIndex } = mockedRadioButtonSelect.mock.calls[0][0];
     expect(items[initialIndex].value).toBe(AuthType.USE_GEMINI);

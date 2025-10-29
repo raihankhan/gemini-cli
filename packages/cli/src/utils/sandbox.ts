@@ -13,12 +13,12 @@ import { fileURLToPath } from 'node:url';
 import { quote, parse } from 'shell-quote';
 import { USER_SETTINGS_DIR } from '../config/settings.js';
 import { promisify } from 'node:util';
-import type { Config, SandboxConfig } from '@google/gemini-cli-core';
+import type { Config, SandboxConfig } from '@google/coder-cli-core';
 import {
   debugLogger,
   FatalSandboxError,
   GEMINI_DIR,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 import { ConsolePatcher } from '../ui/utils/ConsolePatcher.js';
 import { randomBytes } from 'node:crypto';
 
@@ -277,8 +277,8 @@ export async function start_sandbox(
           ...finalArgv.map((arg) => quote([arg])),
         ].join(' '),
       );
-      // start and set up proxy if GEMINI_SANDBOX_PROXY_COMMAND is set
-      const proxyCommand = process.env['GEMINI_SANDBOX_PROXY_COMMAND'];
+      // start and set up proxy if CODER_SANDBOX_PROXY_COMMAND is set
+      const proxyCommand = process.env['CODER_SANDBOX_PROXY_COMMAND'];
       let proxyProcess: ChildProcess | undefined = undefined;
       let sandboxProcess: ChildProcess | undefined = undefined;
       const sandboxEnv = { ...process.env };
@@ -391,7 +391,7 @@ export async function start_sandbox(
             stdio: 'inherit',
             env: {
               ...process.env,
-              GEMINI_SANDBOX: config.command, // in case sandbox is enabled via flags (see config.ts under cli package)
+              CODER_SANDBOX: config.command, // in case sandbox is enabled via flags (see config.ts under cli package)
             },
           },
         );
@@ -514,8 +514,8 @@ export async function start_sandbox(
 
     // copy proxy environment variables, replacing localhost with SANDBOX_PROXY_NAME
     // copy as both upper-case and lower-case as is required by some utilities
-    // GEMINI_SANDBOX_PROXY_COMMAND implies HTTPS_PROXY unless HTTP_PROXY is set
-    const proxyCommand = process.env['GEMINI_SANDBOX_PROXY_COMMAND'];
+    // CODER_SANDBOX_PROXY_COMMAND implies HTTPS_PROXY unless HTTP_PROXY is set
+    const proxyCommand = process.env['CODER_SANDBOX_PROXY_COMMAND'];
 
     if (proxyCommand) {
       let proxy =
@@ -587,9 +587,9 @@ export async function start_sandbox(
       );
     }
 
-    // copy GEMINI_API_KEY(s)
-    if (process.env['GEMINI_API_KEY']) {
-      args.push('--env', `GEMINI_API_KEY=${process.env['GEMINI_API_KEY']}`);
+    // copy CODER_API_KEY(s)
+    if (process.env['CODER_API_KEY']) {
+      args.push('--env', `CODER_API_KEY=${process.env['CODER_API_KEY']}`);
     }
     if (process.env['GOOGLE_API_KEY']) {
       args.push('--env', `GOOGLE_API_KEY=${process.env['GOOGLE_API_KEY']}`);
@@ -642,8 +642,8 @@ export async function start_sandbox(
 
     // Pass through IDE mode environment variables
     for (const envVar of [
-      'GEMINI_CLI_IDE_SERVER_PORT',
-      'GEMINI_CLI_IDE_WORKSPACE_PATH',
+      'CODER_CLI_IDE_SERVER_PORT',
+      'CODER_CLI_IDE_WORKSPACE_PATH',
       'TERM_PROGRAM',
     ]) {
       if (process.env[envVar]) {
@@ -763,7 +763,7 @@ export async function start_sandbox(
     // push container entrypoint (including args)
     args.push(...finalEntrypoint);
 
-    // start and set up proxy if GEMINI_SANDBOX_PROXY_COMMAND is set
+    // start and set up proxy if CODER_SANDBOX_PROXY_COMMAND is set
     let proxyProcess: ChildProcess | undefined = undefined;
     let sandboxProcess: ChildProcess | undefined = undefined;
 

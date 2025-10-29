@@ -83,9 +83,7 @@ export function getCoreSystemPrompt(
   // The default path for the system prompt file. This can be overridden.
   let systemMdPath = path.resolve(path.join(GEMINI_DIR, 'system.md'));
   // Resolve the environment variable to get either a path or a switch value.
-  const systemMdResolution = resolvePathFromEnv(
-    process.env['GEMINI_SYSTEM_MD'],
-  );
+  const systemMdResolution = resolvePathFromEnv(process.env['CODER_SYSTEM_MD']);
 
   // Proceed only if the environment variable is set and is not disabled.
   if (systemMdResolution.value && !systemMdResolution.isDisabled) {
@@ -273,9 +271,9 @@ ${(function () {
 Your core function is efficient and safe assistance. Balance extreme conciseness with the crucial need for clarity, especially regarding safety and potential system modifications. Always prioritize user control and project conventions. Never make assumptions about the contents of files; instead use '${READ_FILE_TOOL_NAME}' or '${READ_MANY_FILES_TOOL_NAME}' to ensure you aren't making broad assumptions. Finally, you are an agent - please keep going until the user's query is completely resolved.
 `.trim();
 
-  // if GEMINI_WRITE_SYSTEM_MD is set (and not 0|false), write base system prompt to file
+  // if CODER_WRITE_SYSTEM_MD is set (and not 0|false), write base system prompt to file
   const writeSystemMdResolution = resolvePathFromEnv(
-    process.env['GEMINI_WRITE_SYSTEM_MD'],
+    process.env['CODER_WRITE_SYSTEM_MD'],
   );
 
   // Check if the feature is enabled. This proceeds only if the environment

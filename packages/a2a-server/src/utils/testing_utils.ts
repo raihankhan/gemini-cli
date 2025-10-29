@@ -14,8 +14,8 @@ import {
   DEFAULT_TRUNCATE_TOOL_OUTPUT_LINES,
   DEFAULT_TRUNCATE_TOOL_OUTPUT_THRESHOLD,
   GeminiClient,
-} from '@google/gemini-cli-core';
-import type { Config, Storage } from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
+import type { Config, Storage } from '@google/coder-cli-core';
 import { expect, vi } from 'vitest';
 
 export function createMockConfig(

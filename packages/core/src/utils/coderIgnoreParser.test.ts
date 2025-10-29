@@ -5,7 +5,7 @@
  */
 
 import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { GeminiIgnoreParser } from './geminiIgnoreParser.js';
+import { GeminiIgnoreParser } from './coderIgnoreParser.js';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 import * as os from 'node:os';

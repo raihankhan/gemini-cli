@@ -21,7 +21,7 @@ export * from './commands/extensions.js';
 export * from './core/client.js';
 export * from './core/contentGenerator.js';
 export * from './core/loggingContentGenerator.js';
-export * from './core/geminiChat.js';
+export * from './core/coderChat.js';
 export * from './core/logger.js';
 export * from './core/prompts.js';
 export * from './core/tokenLimits.js';

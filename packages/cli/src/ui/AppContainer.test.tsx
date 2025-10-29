@@ -21,7 +21,7 @@ import {
   makeFakeConfig,
   CoreEvent,
   type UserFeedbackPayload,
-} from '@google/gemini-cli-core';
+} from '@google/coder-cli-core';
 
 // Mock coreEvents
 const mockCoreEvents = vi.hoisted(() => ({
@@ -31,9 +31,9 @@ const mockCoreEvents = vi.hoisted(() => ({
   emit: vi.fn(),
 }));
 
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@google/coder-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+    await importOriginal<typeof import('@google/coder-cli-core')>();
   return {
     ...actual,
     coreEvents: mockCoreEvents,
@@ -131,7 +131,7 @@ import { useLoadingIndicator } from './hooks/useLoadingIndicator.js';
 import { useKeypress, type Key } from './hooks/useKeypress.js';
 import { measureElement } from 'ink';
 import { useTerminalSize } from './hooks/useTerminalSize.js';
-import { ShellExecutionService } from '@google/gemini-cli-core';
+import { ShellExecutionService } from '@google/coder-cli-core';
 import { type ExtensionManager } from '../config/extension-manager.js';
 
 describe('AppContainer State Management', () => {
