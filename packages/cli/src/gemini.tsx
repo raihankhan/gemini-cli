@@ -421,10 +421,16 @@ export async function main() {
     }
 
     let input = config.getQuestion();
-    const startupWarnings = [
-      ...(await getStartupWarnings()),
-      ...(await getUserStartupWarnings()),
-    ];
+    const startupWarnings = await (async () => {
+      const start = performance.now();
+      const warnings = [
+        ...(await getStartupWarnings()),
+        ...(await getUserStartupWarnings()),
+      ];
+      const end = performance.now();
+      debugLogger.debug(`Startup warnings took ${end - start}ms`);
+      return warnings;
+    })();
 
     // Render UI, passing necessary config values. Check that there is no command line question.
     if (config.isInteractive()) {
